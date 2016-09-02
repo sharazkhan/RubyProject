@@ -1,19 +1,22 @@
 class ArticlesController < ApplicationController
 
+    # Default Function
 	def index
 		@articles = Article.all
 	end
 	 
+	# New Article - Form
 	def new
 		@article = Article.new
 	end
 	
-	
+	# Edit an Article - Form
 	def edit
 		@article = Article.find(params[:id])
 	end
 	
 	
+	# Save article to datatbase
 	def create
 	  @article = Article.new(article_params)
 	  if @article.save
@@ -24,11 +27,13 @@ class ArticlesController < ApplicationController
 	end
 	 
 	
+	# Show Article
 	def show
 	   @article = Article.find(params[:id])
 	end
 	
 	
+	# Update an Article
 	def update
 	  @article = Article.find(params[:id])
 	 
@@ -40,6 +45,7 @@ class ArticlesController < ApplicationController
 	end
 	
 	
+	# Delete an Article
 	def destroy
 		@article = Article.find(params[:id])
 		@article.destroy
